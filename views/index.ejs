@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members Only</title>
+  </head>
+  <body>
+    <a href="/sign-up">sign-up</a>
+    <a href="/sign-in">sign-in</a>
+    <a href="/sign-out">sign-out</a>
+    <div>(messages)</div>
+    <% if (locals.user) {%>
+    <h1>WELCOME BACK <%= user.username %></h1>
+    <% } %>
+  </body>
+</html>
