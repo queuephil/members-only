@@ -1,10 +1,10 @@
 const db = require('../db/queries')
 const controller = {}
 const bcrypt = require('bcryptjs')
+const passport = require('passport')
 
 controller.getHome = (req, res) => res.render('index', { user: req.user })
 
-// sign up user
 controller.getSignUp = (req, res) => res.render('sign-up')
 controller.postSignUp = async (req, res, next) => {
   try {
@@ -19,7 +19,19 @@ controller.postSignUp = async (req, res, next) => {
   }
 }
 
-// sign in user
 controller.getSignIn = (req, res) => res.render('sign-in')
+controller.postSignIn = passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/sign-in',
+})
+
+controller.getSignOut = (req, res, next) => {
+  req.logout((err) => {
+    if (err) {
+      return next(err)
+    }
+    res.redirect('/')
+  })
+}
 
 module.exports = controller
