@@ -1,4 +1,3 @@
-// app.js
 const express = require('express')
 const app = express()
 const session = require('express-session')
@@ -6,7 +5,7 @@ const passport = require('passport')
 const path = require('node:path')
 const router = require('./routes/router')
 require('dotenv').config()
-require('./config/passport') // Passport configuration
+require('./config/passport')
 
 // Middleware
 app.use(express.urlencoded({ extended: true }))
@@ -21,6 +20,5 @@ app.set('view engine', 'ejs')
 // Routes
 app.use('/', router)
 
-// Start server
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}!`))

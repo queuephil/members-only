@@ -6,12 +6,14 @@
     <title>Members Only</title>
   </head>
   <body>
+    <h1>Messages</h1>
+    <% if (!locals.user) {%>
     <a href="/sign-up">sign-up</a>
     <a href="/sign-in">sign-in</a>
+    <% } %> <% if (locals.user) {%>
+    <span> <%= user.username %> </span>
     <a href="/sign-out">sign-out</a>
-    <div>(messages)</div>
-    <% if (locals.user) {%>
-    <h1>WELCOME BACK <%= user.username %></h1>
     <% } %>
+    <div>(messages)</div>
   </body>
 </html>
