@@ -1,0 +1,127 @@
+/* standards ________________________________________________________________*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: none;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+
+  /* border: 1px solid red; */
+}
+:root {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --black010: rgba(0, 0, 0, 0.1);
+  --black050: rgba(0, 0, 0, 0.5);
+  --gray010: rgba(128, 128, 128, 0.1);
+  --gray050: rgba(128, 128, 128, 0.5);
+  --white010: rgba(255, 255, 255, 0.1);
+  --white050: rgba(255, 255, 255, 0.5);
+  --accent: lightsteelblue;
+  --shadow: 0 0 0.5rem var(--black050);
+  --dark-bg-color: rgb(33, 33, 33);
+  --dark-color: rgb(222, 222, 222);
+  background-color: var(--dark-bg-color);
+  color: var(--dark-color);
+}
+
+/* elements _________________________________________________________________*/
+button {
+  background-color: var(--dark-color);
+  color: var(--dark-bg-color);
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 1rem;
+  outline: 1px solid;
+}
+button:hover,
+button:focus {
+  outline: 2px solid;
+}
+
+a {
+  color: var(--dark-color);
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  outline: 1px solid var(--dark-color);
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 3rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  > div > label {
+    display: block;
+    padding: 0 1rem;
+  }
+  > div > input {
+    background-color: transparent;
+    color: var(--dark-color);
+    padding: 0 1rem;
+    outline: 1px solid var(--dark-color);
+    border-radius: 1rem;
+  }
+}
+
+.auth {
+  > * {
+    text-decoration: none;
+    font-size: 2rem;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  > div > a {
+    text-decoration: none;
+    font-size: 2rem;
+  }
+}
+
+.messages {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  outline: 1px solid var(--dark-color);
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+hr {
+  outline: 1px solid var(--dark-color);
+  width: 100%;
+}
