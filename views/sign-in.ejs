@@ -8,31 +8,33 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Sign In</title>
   </head>
   <body>
-    <h1>Sign In</h1>
-    <form action="" method="post">
-      <div>
-        <label for="username">Email:</label>
-        <input type="email" name="username" id="username" required />
+    <div class="sign">
+      <h1>Sign in to your account</h1>
+      <a href="/sign-up"> Or sign up for a new account</a>
+
+      <form action="" method="post">
+        <div>
+          <label for="username">Username</label>
+          <input type="email" name="username" id="username" required />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" required />
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+
+      Or continue with
+      <div class="auth">
+        <a href="/auth/google" class="devicon-google-plain"> </a>
+        <a href="/auth/facebook" class="devicon-facebook-plain"> </a>
+        <a href="/auth/github" class="devicon-github-original"> </a>
       </div>
-      <div>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required />
-      </div>
-      <button type="submit">Sign In</button>
-    </form>
-    <p>Or sign in with:</p>
-    <a href="/auth/google">
-      <i class="devicon-google-plain"></i>
-    </a>
-    <a href="/auth/facebook">
-      <i class="devicon-facebook-plain"></i>
-    </a>
-    <a href="/auth/github">
-      <i class="devicon-github-original"></i>
-    </a>
-    <div><a href="/">Back Home</a></div>
+      <div><a href="/">Back Home</a></div>
+    </div>
   </body>
 </html>

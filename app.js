@@ -7,6 +7,9 @@ const router = require('./routes/router')
 require('dotenv').config()
 require('./config/passport')
 
+const assetsPath = path.join(__dirname, 'public')
+app.use(express.static(assetsPath))
+
 // Middleware
 app.use(express.urlencoded({ extended: true }))
 app.use(session({ secret: 'cats', resave: false, saveUninitialized: false }))

@@ -3,17 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Members Only</title>
   </head>
   <body>
-    <h1>Messages</h1>
-    <% if (!locals.user) {%>
-    <a href="/sign-up">sign-up</a>
-    <a href="/sign-in">sign-in</a>
-    <% } %> <% if (locals.user) {%>
-    <span> <%= user.username %> </span>
-    <a href="/sign-out">sign-out</a>
-    <% } %>
-    <div>(messages)</div>
+    <div class="messages">
+      <header>
+        <h1>Members Only</h1>
+        <div>
+          <% if (!locals.user) {%>
+          <a href="/sign-in" class="material-symbols-outlined"> login </a>
+          <% } %> <% if (locals.user) {%>
+          <a class="material-symbols-outlined"> face </a>
+          <a href="/sign-out" class="material-symbols-outlined"> logout </a>
+          <% } %>
+        </div>
+      </header>
+      <hr />
+      <div>(messages)</div>
+    </div>
   </body>
 </html>
