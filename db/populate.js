@@ -27,7 +27,7 @@ async function main() {
 
   const client = new Client({
     connectionString: process.env.DATABASE_URL || process.env.LOCAL_URL,
-    // ssl: { rejectUnauthorized: false },
+    ssl: { rejectUnauthorized: false },
   })
   await client.connect()
   await client.query(SQL)
