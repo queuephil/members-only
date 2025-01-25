@@ -1,3 +1,5 @@
+const origin = 'https://members-only-production-1636.up.railway.app'
+
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const GoogleStrategy = require('passport-google-oauth20').Strategy
@@ -46,8 +48,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL:
-        'https://members-only-production-1636.up.railway.app/auth/google/callback',
+      callbackURL: `${origin}/auth/google/callback`,
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
@@ -75,7 +76,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
-      callbackURL: '/auth/facebook/callback',
+      callbackURL: `${origin}/auth/facebook/callback`,
       profileFields: ['id', 'emails', 'name'],
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -104,7 +105,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: '/auth/github/callback',
+      callbackURL: `${origin}/auth/github/callback`,
       scope: ['user:email'],
     },
     async (accessToken, refreshToken, profile, done) => {
