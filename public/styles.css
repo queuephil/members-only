@@ -75,7 +75,7 @@ body {
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  /* gap: 1rem; */
   > div > label {
     display: block;
     padding: 0 1rem;
@@ -86,6 +86,9 @@ form {
     padding: 0 1rem;
     outline: 1px solid var(--dark-color);
     border-radius: 1rem;
+  }
+  > button {
+    margin-top: 1rem;
   }
 }
 
@@ -107,6 +110,11 @@ header {
   }
 }
 
+hr {
+  outline: 1px solid var(--dark-color);
+  width: 100%;
+}
+
 .messages {
   width: 700px;
   display: flex;
@@ -121,7 +129,28 @@ header {
   padding: 1rem;
 }
 
-hr {
-  outline: 1px solid var(--dark-color);
+.message {
   width: 100%;
+  > .user {
+    float: inline-start;
+  }
+  > .time {
+    float: inline-end;
+  }
+  > span {
+    font-size: 0.67rem;
+  }
+}
+
+#messageForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > div {
+    width: 100%;
+    > input {
+      width: 100%;
+    }
+  }
 }

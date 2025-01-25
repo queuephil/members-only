@@ -1,20 +1,21 @@
 const express = require('express')
 const app = express()
-const session = require('express-session')
-const passport = require('passport')
-const path = require('node:path')
-const router = require('./routes/router')
+const path = require('node:path') // for Views
+const router = require('./routes/router') // for Routes
+const assetsPath = path.join(__dirname, 'public') // for CSS
 require('dotenv').config()
-require('./config/passport')
 
-const assetsPath = path.join(__dirname, 'public')
-app.use(express.static(assetsPath))
+const session = require('express-session') // for Auth
+const passport = require('passport') // for Auth
+require('./config/passport') // for Auth
 
 // Middleware
-app.use(express.urlencoded({ extended: true }))
-app.use(session({ secret: 'cats', resave: false, saveUninitialized: false }))
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(express.static(assetsPath)) // for CSS
+app.use(express.urlencoded({ extended: true })) // for req.body
+
+app.use(session({ secret: 'cats', resave: false, saveUninitialized: false })) // for Auth
+app.use(passport.initialize()) // for Auth
+app.use(passport.session()) // for Auth
 
 // Views
 app.set('views', path.join(__dirname, 'views'))

@@ -1,6 +1,23 @@
 const pool = require('./pool')
 const queries = {}
 
+// Messages
+queries.addMessage = async (message, username, timestamp) => {
+  await pool.query(
+    `INSERT INTO "messages" (message, username, timestamp)
+    VALUES ($1, $2, $3)`,
+    [message, username, timestamp]
+  )
+}
+
+queries.getMessages = async () => {
+  const { rows } = await pool.query(
+    `SELECT * FROM "messages" ORDER BY timestamp DESC`
+  )
+  return rows
+}
+
+// Auth
 queries.createUser = async (first_name, last_name, username, password) => {
   await pool.query(
     `INSERT INTO "users" (first_name, last_name, username, password) 

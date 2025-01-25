@@ -24,7 +24,32 @@
         </div>
       </header>
       <hr />
-      <div>(messages)</div>
+
+      <% messages.forEach(el => { %>
+      <div class="message">
+        <p><%= el.message %></p>
+        <span class="user"
+          ><%= el.username.charAt(0) + '*'.repeat(el.username.length - 1)
+          %></span
+        >
+        <span class="time"
+          ><%= new Date(parseInt(el.timestamp)).toLocaleString() %></span
+        >
+        <hr />
+      </div>
+      <% }) %> <% if (locals.user) {%>
+      <form action="/message" method="post" id="messageForm">
+        <div>
+          <input
+            type="text"
+            name="message"
+            id="message"
+            placeholder="New message"
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      <% } %>
     </div>
   </body>
 </html>

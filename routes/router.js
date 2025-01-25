@@ -4,6 +4,10 @@ const controller = require('../controllers/controller')
 
 router.get('/', controller.getHome)
 
+// Messages
+router.post('/message', controller.postMessage)
+
+// Auth
 router.get('/sign-up', controller.getSignUp)
 router.post('/sign-up', controller.postSignUp)
 

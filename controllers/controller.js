@@ -3,8 +3,19 @@ const controller = {}
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 
-controller.getHome = (req, res) => res.render('index', { user: req.user })
+controller.getHome = async (req, res) => {
+  const messages = await queries.getMessages()
+  res.render('index', { user: req.user, messages })
+}
 
+// Messages
+controller.postMessage = (req, res) => {
+  const timestamp = Date.now()
+  queries.addMessage(req.body.message, req.user.username, timestamp)
+  res.redirect('/')
+}
+
+// Auth
 controller.getSignUp = (req, res) => res.render('sign-up')
 controller.postSignUp = async (req, res, next) => {
   try {
